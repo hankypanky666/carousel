@@ -60,34 +60,34 @@ class Carousel {
     }
 }
 
-class UpdateElement {
-    constructor(options) {
-        this.parent = options.parent || null;
-        this.target = options.target;
-        this.targetClass = options.targetClass || null;
-        this.element = options.element || 'div';
-        this._init();
-    }
-
-    _init() {
-        var el = document.createElement(this.element);
-
-        if(this.targetClass){
-            el.className = this.targetClass;
-        }
-
-        //console.log(el);
-        if(this.parent) {
-            this.parent.querySelectorAll(this.target);
-        } else {
-            var elms = document.body.querySelectorAll(this.target);
-            elms.forEach(function (item, index) {
-                console.log(item);
-            });
-            //console.log(elms);
-        }
-    }
-
-}
+// class UpdateElement {
+//     constructor(options) {
+//         this.parent = options.parent || null;
+//         this.target = options.target;
+//         this.targetClass = options.targetClass || null;
+//         this.element = options.element || 'div';
+//         this._init();
+//     }
+//
+//     _init() {
+//         var el = document.createElement(this.element);
+//
+//         if(this.targetClass){
+//             el.className = this.targetClass;
+//         }
+//
+//         //console.log(el);
+//         if(this.parent) {
+//             this.parent.querySelectorAll(this.target);
+//         } else {
+//             var elms = document.body.querySelectorAll(this.target);
+//             elms.forEach(function (item, index) {
+//                 console.log(item);
+//             });
+//             //console.log(elms);
+//         }
+//     }
+//
+// }
 
 
