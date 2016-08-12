@@ -1,0 +1,53 @@
+#carousel ul li {
+    display: inline-block;
+    float: left;
+}
+
+#carousel {
+    width: 700px;
+    overflow: hidden;
+    height: 140px;
+    padding: 0 20px;
+    position: relative;
+}
+
+#carousel ul {
+    padding: 0;
+}
+
+#carousel a:hover {
+    cursor: pointer;
+    background: #eeeeee;
+    opacity: 0.5;
+}
+
+#carousel .prev {
+    left: 0;
+}
+#carousel .next {
+    right: 0;
+}
+
+#carousel .c-link {
+    float: left;
+    position: absolute;
+    top: 0;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}

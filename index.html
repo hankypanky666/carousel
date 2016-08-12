@@ -3,20 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Carousel</title>
+    <link rel="stylesheet" href="vendor/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="vendor/bower_components/holderjs/holder.js"></script>
+    <script src="carousel.js"></script>
 </head>
 <body>
 
-    <div class="carousel">
-        <ul>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
-            <li><img src="" alt=""></li>
+    <div id="carousel">
+        <ul class="cf">
+            <li><img class="img-circle" src="holder.js/140x140" alt=""></li>
+            <li><img class="img-circle" src="holder.js/140x140" alt=""></li>
+            <li><img class="img-circle" src="holder.js/140x140" alt=""></li>
+            <li><img class="img-circle" src="holder.js/140x140" alt=""></li>
+            <li><img class="img-circle" src="holder.js/140x140" alt=""></li>
+            <li><img class="img-circle" src="holder.js/140x140" alt=""></li>
+            <li><img class="img-circle" src="holder.js/140x140" alt=""></li>
         </ul>
     </div>
 
+
+
+    <section class="event"></section>
+    <section class="event"></section>
+    <section class="event"></section>
+    <section class="event"></section>
+    <h2>qwerty</h2>
+    <section class="event"></section>
+    <section class="event"></section>
+    <section class="event"></section>
+    <section class="event"></section>
+    <section class="event"></section>
+    <section class="event"></section>
+
 </body>
+<script>
+    new Carousel({
+        container: 'carousel'
+    });
+
+//    new UpdateElement({
+//        target : '.event',
+//        targetClass: 'new'
+//    });
+
+</script>
 </html>
