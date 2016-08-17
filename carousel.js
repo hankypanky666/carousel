@@ -13,18 +13,23 @@ class Carousel {
         this.imgCount = options.imgCount || 1;
         this.imgCountView = options.count || 3;
 
+        this._elemWidth = 0;
+        this._mLeft = 0;
+        this._mRight = 0;
+        this._elemMarginStatus = 0;
+
         this._init();
         console.log(this);
     }
 
     _init() {
-        let elemWidth = this._getElementWidth();
-        let containerWidth = this._getFullWidth(elemWidth);
+        this._elemWidth = this._getElementWidth();
+        let containerWidth = this._getFullWidth(this._elemWidth);
         this.container.querySelector('ul').style.width = containerWidth + 'px';
-        this._setElementWidth(elemWidth);
+        this._setElementWidth(this._elemWidth);
         this._addButtons();
 
-        console.log('elemWidth: ', elemWidth);
+        console.log('elemWidth: ', this._elemWidth);
         console.log('container: ', containerWidth);
     }
 
@@ -57,37 +62,29 @@ class Carousel {
 
         this.container.appendChild(next);
         this.container.insertBefore(prev, this.container.firstChild);
+        next.addEventListener('click', this._listNext.bind(this));
+        prev.addEventListener('click', this._listPrev.bind(this));
+    }
+
+    _listNext (e) {
+        if (Math.abs(this._elemMarginStatus) >= (this._getFullWidth(this._elemWidth) - this._elemWidth * this.imgCountView)){
+            e.target.disabled = !e.target.disabled;
+        } else {
+            this._elemMarginStatus -= this._elemWidth;
+            this.container.querySelector('ul').style.marginLeft = this._elemMarginStatus + 'px';
+        }
+
+    }
+
+    _listPrev (e) {
+        if (!this._elemMarginStatus <= 0) {
+            this._elemMarginStatus += this._elemWidth;
+            this.container.querySelector('ul').style.marginLeft = this._elemMarginStatus + 'px';
+        } else {
+            e.target.disabled = !e.target.disabled;
+        }
     }
 }
 
-// class UpdateElement {
-//     constructor(options) {
-//         this.parent = options.parent || null;
-//         this.target = options.target;
-//         this.targetClass = options.targetClass || null;
-//         this.element = options.element || 'div';
-//         this._init();
-//     }
-//
-//     _init() {
-//         var el = document.createElement(this.element);
-//
-//         if(this.targetClass){
-//             el.className = this.targetClass;
-//         }
-//
-//         //console.log(el);
-//         if(this.parent) {
-//             this.parent.querySelectorAll(this.target);
-//         } else {
-//             var elms = document.body.querySelectorAll(this.target);
-//             elms.forEach(function (item, index) {
-//                 console.log(item);
-//             });
-//             //console.log(elms);
-//         }
-//     }
-//
-// }
 
 

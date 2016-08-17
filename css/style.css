@@ -15,6 +15,13 @@
     padding: 0;
 }
 
+#carousel ul {
+    transition-property: margin-left;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+}
+
+
 #carousel a:hover {
     cursor: pointer;
     background: #eeeeee;
